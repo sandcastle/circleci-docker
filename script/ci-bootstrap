@@ -38,7 +38,7 @@ check_status() {
 
     max=30
     count=0
-    while [ $(curl -sLI -w "%{http_code}\n" "$1" -o /dev/null) -ne 200 ]
+    while [ $(curl -sLI -w "%{http_code}\n" -X GET $1 -o /dev/null) -ne 200 ]
     do
         # check if max retries hit
         if [ $count -eq $max ] ; then
