@@ -15,6 +15,12 @@ date "+%H:%M:%S"
 
 echo "--------- "
 
+# install node packages
+npm install
+npm prune
+
+echo "--------- "
+
 # capture docker info for debug
 docker info
 
