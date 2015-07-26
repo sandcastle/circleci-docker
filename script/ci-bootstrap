@@ -52,7 +52,7 @@ check_status() {
         sleep 1
     done
 }
-check_status "http://localhost:32770/"
+check_status "http://localhost:8080/"
 
 echo "--------- "
 echo "Bootstrapping done!"

@@ -5,7 +5,7 @@ require('co-mocha');
 
 const config = {
     host: 'localhost',
-    port: 32769,
+    port: 28015,
     authKey: '',
     db: 'inbox'
 };
