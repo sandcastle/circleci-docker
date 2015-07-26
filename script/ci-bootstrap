@@ -23,7 +23,7 @@ echo "Setting up rethinkdb"
 
 # startup rethink db
 docker pull library/rethinkdb
-docker run -d  -p 29015:32768 -p 28015:32769 -p 8080:32770 library/rethinkdb
+docker run -d  -p 29015:29015 -p 28015:28015 -p 8080:8080 library/rethinkdb
 
 echo "--------- "
 
