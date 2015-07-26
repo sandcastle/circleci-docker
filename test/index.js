@@ -10,29 +10,6 @@ const config = {
     db: 'inbox'
 };
 
-before(function*(){
-    
-    console.log('-----------');
-    
-    let conn = yield r.connect(config);
-    
-    // drop db if exists
-    console.log('checking for existing db');
-    if (yield r.dbList().contains(config.db).run(conn)) {        
-        console.log('dropping db');
-        yield r.dbDrop(config.db).run(conn);
-    }
-    
-    // create db
-    console.log('creating db');
-    yield r.dbCreate(config.db).run(conn);
-    
-    yield conn.close();
-    
-    console.log('-----------');
-    
-});
-
 describe('rethink-docker', function(){
    
     let conn;
@@ -46,16 +23,32 @@ describe('rethink-docker', function(){
     });
    
     it('should be able to connect', function*(){
-       
-        // drop tables
-        yield r.db(config.db).tableDrop('user').run(conn);
-
+        
+        console.log('-----------');
+    
+        // drop db if exists
+        console.log('checking for existing db');
+        if (yield r.dbList().contains(config.db).run(conn)) {        
+            console.log('dropping db');
+            yield r.dbDrop(config.db).run(conn);
+        }
+        
+        // create db
+        console.log('creating db');
+        yield r.dbCreate(config.db).run(conn);
+            
         // create tables
+        console.log('create table');
         yield r.db(config.db).tableCreate('user').run(conn);
         
         // insert
+        console.log('insert row');
         let user = { name: 'sandcastle' };
         yield r.db(config.db).table('user').insert(user).run(conn);
+        
+        yield conn.close();
+        
+        console.log('-----------');
         
     });
 });
