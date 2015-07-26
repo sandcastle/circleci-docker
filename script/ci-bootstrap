@@ -37,16 +37,16 @@ echo "Waiting for rethinkdb"
 check_status() {
 
     max=30
-    i=0
+    count=0
     while [ $(curl -sLI -w "%{http_code}\n" "$1" -o /dev/null) -ne 200 ]
     do
         # check if max retries hit
-        if [ $i -eq $max ] ; then
+        if [ $count -eq $max ] ; then
           echo "Max attempts $max reached"
           exit 1
         fi
         
-        ((i++))
+        count=$((count+1))
         
         echo "Failed to connect to $1"        
         sleep 1
