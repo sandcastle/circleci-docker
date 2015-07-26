@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# exit on sub-module failure
+set -e
+
+# move to parent dir
+cd "$(dirname "$0")/.."
+
+# ------
+
+echo "Running tests"
+date "+%H:%M:%S"
+
+# kick off the tests
+MOCHA_FILE=$CIRCLE_TEST_REPORTS/test-results.xml node --harmony ./node_modules/.bin/mocha --reporter mocha-junit-reporter test/**/*.js

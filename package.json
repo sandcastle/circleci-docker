@@ -1,0 +1,27 @@
+{
+  "name": "circleci-docker",
+  "version": "1.0.0",
+  "description": "A test repo for Circle CI using docker container dependencies during a build.",
+  "author": "sandcastle",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --harmony ./node_modules/.bin/mocha test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sandcastle/circleci-docker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sandcastle/circleci-docker/issues"
+  },
+  "homepage": "https://github.com/sandcastle/circleci-docker#readme",
+  "devDependencies": {
+    "co-mocha": "^1.1.2",
+    "mocha": "^2.2.5",
+    "mocha-junit-reporter": "^1.6.1"
+  },
+  "dependencies": {
+    "rethinkdb": "^2.0.2"
+  }
+}

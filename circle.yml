@@ -1,0 +1,15 @@
+machine:
+  node:
+    version: iojs-v2.2
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - node_modules
+  override:
+    - sh ./script/ci-bootstrap
+
+test:
+  override:
+    - sh ./script/ci-test
