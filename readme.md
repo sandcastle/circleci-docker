@@ -1,4 +1,4 @@
-# Circle CI & Docker
+# Circle CI & Docker [![Circle CI](https://circleci.com/gh/sandcastle/circleci-docker.svg?style=svg)](https://circleci.com/gh/sandcastle/circleci-docker)
 > Testing Docker container dependencies with Circle CI.
 
 
